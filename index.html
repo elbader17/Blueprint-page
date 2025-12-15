@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,22 +25,33 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #0f172a;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #334155;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #475569;
         }
 
         /* Animations */
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
 
         .animate-float {
@@ -52,8 +64,15 @@
         }
 
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
-            50% { box-shadow: 0 0 25px rgba(56, 189, 248, 0.5); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+            }
         }
 
         .glow-effect {
@@ -63,7 +82,7 @@
         .bg-grid {
             background-size: 50px 50px;
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
 
         /* Typewriter Cursor */
@@ -74,7 +93,9 @@
         }
 
         @keyframes blink {
-            50% { opacity: 0; }
+            50% {
+                opacity: 0;
+            }
         }
 
         /* Reveal on Scroll */
@@ -94,18 +115,32 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .code-syntax-key { color: #c084fc; } /* Purple */
-        .code-syntax-str { color: #86efac; } /* Green */
-        .code-syntax-cmd { color: #38bdf8; } /* Blue */
+
+        .code-syntax-key {
+            color: #c084fc;
+        }
+
+        /* Purple */
+        .code-syntax-str {
+            color: #86efac;
+        }
+
+        /* Green */
+        .code-syntax-cmd {
+            color: #38bdf8;
+        }
+
+        /* Blue */
     </style>
 </head>
+
 <body class="antialiased bg-slate-900 bg-grid min-h-screen relative">
 
     <!-- Decorative gradients -->
     <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-cyan-500/10 rounded-full blur-[100px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/10 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/10 rounded-full blur-[100px]">
+        </div>
     </div>
 
     <!-- Navbar -->
@@ -114,23 +149,34 @@
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
                 <div class="flex items-center gap-2 group cursor-pointer z-50">
-                    <div class="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform">
+                    <div
+                        class="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform">
                         <i data-lucide="box" class="text-white w-5 h-5"></i>
                     </div>
-                    <span class="font-bold text-xl tracking-tight text-white">blueprint<span class="text-cyan-400">.cli</span></span>
+                    <span class="font-bold text-xl tracking-tight text-white">blueprint<span
+                            class="text-cyan-400">.cli</span></span>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-8">
                     <div class="flex items-baseline space-x-8">
-                        <a href="#features" class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium" data-i18n="nav_features">Características</a>
-                        <a href="#demo" class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium" data-i18n="nav_how">Cómo funciona</a>
-                        <a href="#roadmap" class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium" data-i18n="nav_roadmap">Roadmap</a>
-                        <a href="#install" class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium" data-i18n="nav_install">Instalación</a>
+                        <a href="#features"
+                            class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                            data-i18n="nav_features">Características</a>
+                        <a href="#demo"
+                            class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                            data-i18n="nav_how">Cómo funciona</a>
+                        <a href="#roadmap"
+                            class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                            data-i18n="nav_roadmap">Roadmap</a>
+                        <a href="#install"
+                            class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                            data-i18n="nav_install">Instalación</a>
                     </div>
-                    
+
                     <!-- Language Switcher -->
-                    <button id="lang-toggle-desktop" onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-700 hover:border-cyan-500/50 hover:bg-slate-800 transition-all text-xs font-bold text-slate-300">
+                    <button id="lang-toggle-desktop" onclick="toggleLanguage()"
+                        class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-700 hover:border-cyan-500/50 hover:bg-slate-800 transition-all text-xs font-bold text-slate-300">
                         <i data-lucide="globe" class="w-3 h-3"></i>
                         <span class="lang-label">ES</span>
                     </button>
@@ -138,13 +184,15 @@
 
                 <!-- Desktop GitHub & Mobile Burger -->
                 <div class="flex items-center gap-4">
-                    <a href="https://github.com/elbader17/Blueprint" target="_blank" class="hidden md:flex bg-white/10 hover:bg-white/20 border border-white/10 text-white px-4 py-2 rounded-full text-sm font-medium transition-all items-center gap-2">
+                    <a href="https://github.com/elbader17/Blueprint" target="_blank"
+                        class="hidden md:flex bg-white/10 hover:bg-white/20 border border-white/10 text-white px-4 py-2 rounded-full text-sm font-medium transition-all items-center gap-2">
                         <i data-lucide="github" class="w-4 h-4"></i>
                         <span data-i18n="nav_github">Ver en GitHub</span>
                     </a>
 
                     <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" class="md:hidden text-white hover:text-cyan-400 focus:outline-none z-50">
+                    <button id="mobile-menu-btn"
+                        class="md:hidden text-white hover:text-cyan-400 focus:outline-none z-50">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -152,19 +200,26 @@
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 z-40 bg-slate-900/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8">
-            <a href="#features" class="text-xl font-medium text-white hover:text-cyan-400 mobile-link" data-i18n="nav_features">Características</a>
-            <a href="#demo" class="text-xl font-medium text-white hover:text-cyan-400 mobile-link" data-i18n="nav_how">Cómo funciona</a>
-            <a href="#roadmap" class="text-xl font-medium text-white hover:text-cyan-400 mobile-link" data-i18n="nav_roadmap">Roadmap</a>
-            <a href="#install" class="text-xl font-medium text-white hover:text-cyan-400 mobile-link" data-i18n="nav_install">Instalación</a>
-            
+        <div id="mobile-menu"
+            class="fixed inset-0 z-40 bg-slate-900/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8">
+            <a href="#features" class="text-xl font-medium text-white hover:text-cyan-400 mobile-link"
+                data-i18n="nav_features">Características</a>
+            <a href="#demo" class="text-xl font-medium text-white hover:text-cyan-400 mobile-link"
+                data-i18n="nav_how">Cómo funciona</a>
+            <a href="#roadmap" class="text-xl font-medium text-white hover:text-cyan-400 mobile-link"
+                data-i18n="nav_roadmap">Roadmap</a>
+            <a href="#install" class="text-xl font-medium text-white hover:text-cyan-400 mobile-link"
+                data-i18n="nav_install">Instalación</a>
+
             <div class="flex flex-col items-center gap-6 mt-4">
-                <button id="lang-toggle-mobile" onclick="toggleLanguage()" class="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700 bg-slate-800 text-sm font-bold text-slate-300">
+                <button id="lang-toggle-mobile" onclick="toggleLanguage()"
+                    class="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700 bg-slate-800 text-sm font-bold text-slate-300">
                     <i data-lucide="globe" class="w-4 h-4"></i>
                     <span class="lang-label">ES</span>
                 </button>
-                
-                <a href="https://github.com/elbader17/Blueprint" target="_blank" class="bg-white/10 border border-white/10 text-white px-6 py-3 rounded-full text-base font-medium flex items-center gap-2">
+
+                <a href="https://github.com/elbader17/Blueprint" target="_blank"
+                    class="bg-white/10 border border-white/10 text-white px-6 py-3 rounded-full text-base font-medium flex items-center gap-2">
                     <i data-lucide="github" class="w-5 h-5"></i>
                     <span data-i18n="nav_github">Ver en GitHub</span>
                 </a>
@@ -175,30 +230,38 @@
     <!-- Hero Section -->
     <main class="relative z-10 pt-32 pb-16 sm:pt-40 sm:pb-24 lg:pb-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            
+
             <!-- Badge -->
             <div class="flex justify-center mb-8 reveal">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                <span
+                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                     <span class="w-2 h-2 bg-cyan-400 rounded-full mr-2 animate-pulse"></span>
-                    <span data-i18n="hero_badge">Actualmente en Beta v0.1.0</span>
+                    <span data-i18n="hero_badge">Actualmente en Beta v0.2.1</span>
                 </span>
             </div>
 
             <div class="text-center reveal">
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6" data-i18n="hero_title">
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6"
+                    data-i18n="hero_title">
                     Tu API REST completa<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">en segundos.</span>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">en
+                        segundos.</span>
                 </h1>
                 <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400 mb-10 px-4" data-i18n="hero_desc">
-                    Convierte tu diseño en una API funcional al instante. Define tu arquitectura en un archivo Markdown y obtén automáticamente un backend robusto y escalable.
+                    Convierte tu diseño en una API funcional al instante. Define tu arquitectura en un archivo Markdown
+                    y obtén automáticamente un backend robusto y escalable.
                 </p>
-                
+
                 <div class="flex flex-col sm:flex-row justify-center gap-4 px-6">
-                    <a href="#install" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-lg transition-all shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 group w-full sm:w-auto">
+                    <a href="#install"
+                        class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-lg transition-all shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 group w-full sm:w-auto">
                         <span data-i18n="hero_start">Empezar</span>
                         <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                     </a>
-                    <button class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-3 px-8 rounded-lg border border-slate-700 transition-all flex items-center justify-center gap-2 w-full sm:w-auto overflow-hidden" onclick="copyClone()">
+                    <button
+                        class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-3 px-8 rounded-lg border border-slate-700 transition-all flex items-center justify-center gap-2 w-full sm:w-auto overflow-hidden"
+                        onclick="copyClone()">
                         <span class="font-mono text-sm truncate" id="clone-text">git clone https://...</span>
                         <i data-lucide="copy" class="w-4 h-4 text-slate-400 flex-shrink-0"></i>
                     </button>
@@ -207,7 +270,9 @@
 
             <!-- Terminal Demo -->
             <div class="mt-20 relative max-w-4xl mx-auto reveal px-4">
-                <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl blur opacity-20 animate-pulse"></div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl blur opacity-20 animate-pulse">
+                </div>
                 <div class="relative rounded-xl bg-[#0d1117] border border-slate-700 shadow-2xl overflow-hidden">
                     <div class="flex items-center px-4 py-3 bg-slate-800/50 border-b border-slate-700">
                         <div class="flex space-x-2">
@@ -217,7 +282,8 @@
                         </div>
                         <div class="flex-1 text-center text-xs text-slate-400 font-mono">user@dev:~/work/shop-api</div>
                     </div>
-                    <div class="p-6 font-mono text-sm sm:text-base h-[320px] overflow-y-auto scrollbar-hide" id="terminal-content">
+                    <div class="p-6 font-mono text-sm sm:text-base h-[320px] overflow-y-auto scrollbar-hide"
+                        id="terminal-content">
                         <!-- Content will be injected by JS -->
                         <div id="typewriter" class="whitespace-pre-wrap text-slate-300"></div>
                     </div>
@@ -237,15 +303,18 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                
+
                 <!-- Input Card -->
-                <div class="glass-card rounded-xl p-6 relative animate-float reveal group hover:border-amber-500/50 transition-colors mx-4 sm:mx-0">
-                    <div class="absolute -top-3 -left-3 bg-amber-500 text-black text-xs font-bold px-2 py-1 rounded">blueprint.md</div>
+                <div
+                    class="glass-card rounded-xl p-6 relative animate-float reveal group hover:border-amber-500/50 transition-colors mx-4 sm:mx-0">
+                    <div class="absolute -top-3 -left-3 bg-amber-500 text-black text-xs font-bold px-2 py-1 rounded">
+                        blueprint.md</div>
                     <div class="flex items-center justify-between mb-4 border-b border-slate-700 pb-2">
                         <span class="text-sm text-slate-400 font-mono" data-i18n="demo_input_def">Definición JSON</span>
                         <i data-lucide="file-json" class="text-amber-400 w-5 h-5"></i>
                     </div>
-                    <div class="font-mono text-xs text-slate-300 space-y-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <div
+                        class="font-mono text-xs text-slate-300 space-y-1 opacity-80 group-hover:opacity-100 transition-opacity">
                         <p class="text-slate-500">// ... markdown ...</p>
                         <p>```json</p>
                         <p>{</p>
@@ -269,21 +338,28 @@
 
                 <!-- Process Arrow -->
                 <div class="flex flex-col items-center justify-center reveal">
-                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/30 glow-effect z-10">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/30 glow-effect z-10">
                         <i data-lucide="zap" class="text-white w-8 h-8 fill-current"></i>
                     </div>
-                    <div class="hidden lg:block h-1 w-full bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent -mt-8"></div>
-                    <p class="mt-12 font-mono text-cyan-400 text-sm font-bold tracking-widest uppercase" data-i18n="demo_process">GENERANDO</p>
+                    <div
+                        class="hidden lg:block h-1 w-full bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent -mt-8">
+                    </div>
+                    <p class="mt-12 font-mono text-cyan-400 text-sm font-bold tracking-widest uppercase"
+                        data-i18n="demo_process">GENERANDO</p>
                 </div>
 
                 <!-- Output Card -->
-                <div class="glass-card rounded-xl p-6 relative animate-float-delayed reveal group hover:border-cyan-500/50 transition-colors mx-4 sm:mx-0">
-                    <div class="absolute -top-3 -right-3 bg-cyan-500 text-black text-xs font-bold px-2 py-1 rounded">Generated Go</div>
+                <div
+                    class="glass-card rounded-xl p-6 relative animate-float-delayed reveal group hover:border-cyan-500/50 transition-colors mx-4 sm:mx-0">
+                    <div class="absolute -top-3 -right-3 bg-cyan-500 text-black text-xs font-bold px-2 py-1 rounded">
+                        Generated Go</div>
                     <div class="flex items-center justify-between mb-4 border-b border-slate-700 pb-2">
                         <span class="text-sm text-slate-400 font-mono">handlers/orders.go</span>
                         <i data-lucide="server" class="text-cyan-400 w-5 h-5"></i>
                     </div>
-                    <div class="font-mono text-xs text-slate-300 space-y-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <div
+                        class="font-mono text-xs text-slate-300 space-y-1 opacity-80 group-hover:opacity-100 transition-opacity">
                         <p><span class="text-purple-400">func</span> CreateOrder(c *gin.Context) {</p>
                         <p>&nbsp;&nbsp;<span class="text-slate-500">// Auth Middleware check passed</span></p>
                         <p>&nbsp;&nbsp;var ord models.Order</p>
@@ -308,34 +384,56 @@
                 <h2 class="text-3xl font-bold text-white mb-4" data-i18n="feat_title">Todo lo necesario</h2>
                 <p class="text-slate-400" data-i18n="feat_desc">Genera una base sólida, no solo código.</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-                
+
                 <!-- Feature 1 -->
-                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/30 transition-all hover:bg-slate-800 reveal group">
-                    <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div
+                    class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/30 transition-all hover:bg-slate-800 reveal group">
+                    <div
+                        class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <i data-lucide="zap" class="text-cyan-400 w-6 h-6"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">Gin Framework</h3>
-                    <p class="text-slate-400 text-sm" data-i18n="feat_1_desc">Utiliza el framework web más rápido de Go. Handlers, rutas y middlewares preconfigurados para máximo rendimiento.</p>
+                    <p class="text-slate-400 text-sm" data-i18n="feat_1_desc">Utiliza el framework web más rápido de Go.
+                        Handlers, rutas y middlewares preconfigurados para máximo rendimiento.</p>
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-orange-500/30 transition-all hover:bg-slate-800 reveal group">
-                    <div class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div
+                    class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-orange-500/30 transition-all hover:bg-slate-800 reveal group">
+                    <div
+                        class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <i data-lucide="lock" class="text-orange-500 w-6 h-6"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2" data-i18n="feat_2_title">Auth Integrado</h3>
-                    <p class="text-slate-400 text-sm" data-i18n="feat_2_desc">Sistema de Login y Registro listo para usar con Firebase Auth. Protege tus endpoints con solo añadir <code>protected: true</code>.</p>
+                    <p class="text-slate-400 text-sm" data-i18n="feat_2_desc">Sistema de Login y Registro listo para
+                        usar con Firebase Auth. Protege tus endpoints con solo añadir <code>protected: true</code>.</p>
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-purple-500/30 transition-all hover:bg-slate-800 reveal group">
-                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div
+                    class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-purple-500/30 transition-all hover:bg-slate-800 reveal group">
+                    <div
+                        class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <i data-lucide="database" class="text-purple-400 w-6 h-6"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">Auto-CRUD</h3>
-                    <p class="text-slate-400 text-sm" data-i18n="feat_3_desc">Genera automáticamente operaciones Create, Read, Update y Delete para cada modelo definido en tu JSON.</p>
+                    <p class="text-slate-400 text-sm" data-i18n="feat_3_desc">Genera automáticamente operaciones Create,
+                        Read, Update y Delete para cada modelo definido en tu JSON.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div
+                    class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-green-500/30 transition-all hover:bg-slate-800 reveal group">
+                    <div
+                        class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="file-text" class="text-green-500 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Swagger UI</h3>
+                    <p class="text-slate-400 text-sm" data-i18n="feat_4_desc">Generación automática de documentación
+                        <strong>OpenAPI</strong> interactiva para probar tus endpoints.
+                    </p>
                 </div>
 
             </div>
@@ -354,58 +452,61 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
                 <!-- DB Support -->
-                <div class="p-6 rounded-xl bg-slate-800/50 border border-slate-700 reveal hover:border-blue-500/50 transition-colors">
+                <div
+                    class="p-6 rounded-xl bg-slate-800/50 border border-slate-700 reveal hover:border-blue-500/50 transition-colors">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
+                        <div
+                            class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
                             <i data-lucide="server" class="w-5 h-5"></i>
                         </div>
                         <h3 class="font-bold text-white">PostgreSQL & MongoDB</h3>
                     </div>
-                    <p class="text-slate-400 text-sm" data-i18n="road_1_desc">Soporte nativo para bases de datos SQL y NoSQL populares, además de Firestore.</p>
+                    <p class="text-slate-400 text-sm" data-i18n="road_1_desc">Soporte nativo para bases de datos SQL y
+                        NoSQL populares, además de Firestore.</p>
                 </div>
 
-                <!-- Swagger -->
-                <div class="p-6 rounded-xl bg-slate-800/50 border border-slate-700 reveal hover:border-green-500/50 transition-colors">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">
-                            <i data-lucide="file-text" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold text-white">Swagger UI</h3>
-                    </div>
-                    <p class="text-slate-400 text-sm" data-i18n="road_2_desc">Generación automática de documentación <strong>OpenAPI</strong> interactiva para probar tus endpoints.</p>
-                </div>
+
 
                 <!-- Tests -->
-                <div class="p-6 rounded-xl bg-slate-800/50 border border-slate-700 reveal hover:border-purple-500/50 transition-colors">
+                <div
+                    class="p-6 rounded-xl bg-slate-800/50 border border-slate-700 reveal hover:border-purple-500/50 transition-colors">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
+                        <div
+                            class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
                             <i data-lucide="test-tube" class="w-5 h-5"></i>
                         </div>
                         <h3 class="font-bold text-white" data-i18n="road_3_title">Tests Automáticos</h3>
                     </div>
-                    <p class="text-slate-400 text-sm" data-i18n="road_3_desc">Creación de tests unitarios y de integración para garantizar la calidad del código generado.</p>
+                    <p class="text-slate-400 text-sm" data-i18n="road_3_desc">Creación de tests unitarios y de
+                        integración para garantizar la calidad del código generado.</p>
                 </div>
 
                 <!-- GUI -->
-                <div class="p-6 rounded-xl bg-slate-800/50 border border-slate-700 reveal hover:border-pink-500/50 transition-colors">
+                <div
+                    class="p-6 rounded-xl bg-slate-800/50 border border-slate-700 reveal hover:border-pink-500/50 transition-colors">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400">
+                        <div
+                            class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400">
                             <i data-lucide="layout" class="w-5 h-5"></i>
                         </div>
                         <h3 class="font-bold text-white" data-i18n="road_4_title">Interfaz Gráfica</h3>
                     </div>
-                    <p class="text-slate-400 text-sm" data-i18n="road_4_desc">Una UI amigable para diseñar tus modelos visualmente sin editar el JSON manualmente.</p>
+                    <p class="text-slate-400 text-sm" data-i18n="road_4_desc">Una UI amigable para diseñar tus modelos
+                        visualmente sin editar el JSON manualmente.</p>
                 </div>
 
                 <!-- Deploys -->
-                <div class="p-6 rounded-xl bg-slate-800/50 border border-slate-700 reveal hover:border-orange-500/50 transition-colors md:col-span-2 lg:col-span-2">
+                <div
+                    class="p-6 rounded-xl bg-slate-800/50 border border-slate-700 reveal hover:border-orange-500/50 transition-colors md:col-span-2 lg:col-span-2">
                     <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400">
+                        <div
+                            class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400">
                             <i data-lucide="rocket" class="w-5 h-5"></i>
                         </div>
                         <h3 class="font-bold text-white">Auto-Deploys</h3>
                     </div>
-                    <p class="text-slate-400 text-sm" data-i18n="road_5_desc">Generación de Dockerfiles y scripts para despliegue automatizado en Cloud Run y otros servicios.</p>
+                    <p class="text-slate-400 text-sm" data-i18n="road_5_desc">Generación de Dockerfiles y scripts para
+                        despliegue automatizado en Cloud Run y otros servicios.</p>
                 </div>
             </div>
         </div>
@@ -414,26 +515,34 @@
     <!-- Installation & Setup -->
     <section id="install" class="py-24 relative z-10">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-[#1e293b] rounded-2xl p-8 border border-slate-700 reveal shadow-2xl relative overflow-hidden">
+            <div
+                class="bg-[#1e293b] rounded-2xl p-8 border border-slate-700 reveal shadow-2xl relative overflow-hidden">
                 <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                    <i data-lucide="terminal" class="text-cyan-400"></i> <span data-i18n="install_title">Instalación Rápida</span>
+                    <i data-lucide="terminal" class="text-cyan-400"></i> <span data-i18n="install_title">Instalación
+                        Rápida</span>
                 </h2>
-                
+
                 <div class="space-y-6">
                     <!-- Step 1 -->
                     <div>
-                        <p class="text-slate-400 mb-2 text-sm" data-i18n="install_step1">1. Clona y compila el generador:</p>
+                        <p class="text-slate-400 mb-2 text-sm" data-i18n="install_step1">1. Clona y compila el
+                            generador:</p>
                         <div class="bg-slate-900 rounded-lg border border-slate-700 relative group">
                             <!-- Code Container: Scrollable -->
-                            <div class="overflow-x-auto p-4 pr-12 font-mono text-sm text-slate-300 whitespace-nowrap scrollbar-thin">
+                            <div
+                                class="overflow-x-auto p-4 pr-12 font-mono text-sm text-slate-300 whitespace-nowrap scrollbar-thin">
                                 <div class="space-y-1">
-                                    <p><span class="text-purple-400">git</span> clone https://github.com/elbader17/Blueprint.git</p>
+                                    <p><span class="text-purple-400">git</span> clone
+                                        https://github.com/elbader17/Blueprint.git</p>
                                     <p><span class="text-purple-400">cd</span> Blueprint</p>
-                                    <p><span class="text-purple-400">go</span> build -o blueprint_gen cmd/blueprint/main.go</p>
+                                    <p><span class="text-purple-400">go</span> build -o blueprint_gen
+                                        cmd/blueprint/main.go</p>
                                 </div>
                             </div>
                             <!-- Copy Button: Absolute Positioned -->
-                            <button class="absolute top-2 right-2 p-2 bg-slate-800 rounded hover:bg-slate-700 text-slate-400 hover:text-white transition-all z-10" onclick="copyCode(this)">
+                            <button
+                                class="absolute top-2 right-2 p-2 bg-slate-800 rounded hover:bg-slate-700 text-slate-400 hover:text-white transition-all z-10"
+                                onclick="copyCode(this)">
                                 <i data-lucide="copy" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -441,24 +550,30 @@
 
                     <!-- Step 2 -->
                     <div>
-                        <p class="text-slate-400 mb-2 text-sm" data-i18n="install_step2">2. Ejecuta con tu archivo de configuración:</p>
+                        <p class="text-slate-400 mb-2 text-sm" data-i18n="install_step2">2. Ejecuta con tu archivo de
+                            configuración:</p>
                         <div class="bg-slate-900 rounded-lg border border-slate-700 relative group">
                             <!-- Code Container -->
-                            <div class="overflow-x-auto p-4 pr-12 font-mono text-sm text-slate-300 whitespace-nowrap scrollbar-thin">
+                            <div
+                                class="overflow-x-auto p-4 pr-12 font-mono text-sm text-slate-300 whitespace-nowrap scrollbar-thin">
                                 <p>./blueprint_gen blueprint.md</p>
                             </div>
                             <!-- Copy Button -->
-                            <button class="absolute top-2 right-2 p-2 bg-slate-800 rounded hover:bg-slate-700 text-slate-400 hover:text-white transition-all z-10" onclick="copyCode(this)">
+                            <button
+                                class="absolute top-2 right-2 p-2 bg-slate-800 rounded hover:bg-slate-700 text-slate-400 hover:text-white transition-all z-10"
+                                onclick="copyCode(this)">
                                 <i data-lucide="copy" class="w-4 h-4"></i>
                             </button>
                         </div>
                     </div>
-                    
+
                     <div class="pt-4 border-t border-slate-700">
                         <div class="flex items-start gap-3">
                             <i data-lucide="alert-triangle" class="text-amber-500 w-5 h-5 mt-0.5 flex-shrink-0"></i>
                             <div class="text-sm text-slate-400" data-i18n="install_note">
-                                <strong class="text-slate-200">Importante:</strong> Recuerda colocar tu archivo <code>firebaseCredentials.json</code> en la raíz del proyecto generado para que la conexión funcione correctamente.
+                                <strong class="text-slate-200">Importante:</strong> Recuerda colocar tu archivo
+                                <code>firebaseCredentials.json</code> en la raíz del proyecto generado para que la
+                                conexión funcione correctamente.
                             </div>
                         </div>
                     </div>
@@ -474,10 +589,14 @@
                 <i data-lucide="box" class="text-cyan-500 w-6 h-6"></i>
                 <span class="font-bold text-xl text-white">blueprint<span class="text-cyan-400">.cli</span></span>
             </div>
-            <p class="text-slate-500 text-sm mb-6 text-center" data-i18n="footer_slogan">Tu API completa desde <span class="text-cyan-400">un solo archivo</span>.</p>
+            <p class="text-slate-500 text-sm mb-6 text-center" data-i18n="footer_slogan">Tu API completa desde <span
+                    class="text-cyan-400">un solo archivo</span>.</p>
             <div class="flex gap-6">
-                <a href="https://github.com/elbader17/Blueprint" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
-                <a href="#" class="text-slate-400 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="https://github.com/elbader17/Blueprint" target="_blank"
+                    class="text-slate-400 hover:text-white transition-colors"><i data-lucide="github"
+                        class="w-5 h-5"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors"><i data-lucide="twitter"
+                        class="w-5 h-5"></i></a>
             </div>
             <p class="mt-8 text-slate-600 text-xs">© 2025 Blueprint CLI Project.</p>
         </div>
@@ -491,7 +610,7 @@
         const navBar = document.getElementById('navbar'); // Referencia al nav
 
         function toggleNavbarStyles(isOpen) {
-             if (isOpen) {
+            if (isOpen) {
                 // Si abrimos el menú, quitamos los estilos de scroll para que no choque
                 navBar.classList.remove('bg-slate-900/90', 'backdrop-blur-md', 'border-b', 'border-slate-800');
             } else {
@@ -526,7 +645,7 @@
 
 
         // --- Internationalization Logic ---
-        
+
         const translations = {
             es: {
                 nav_features: "Características",
@@ -534,7 +653,7 @@
                 nav_roadmap: "Roadmap",
                 nav_install: "Instalación",
                 nav_github: "Ver en GitHub",
-                hero_badge: "Actualmente en Beta v0.1.0",
+                hero_badge: "Actualmente en Beta v0.2.1",
                 hero_title: `Tu API REST completa<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">en segundos.</span>`,
                 hero_desc: "Convierte tu diseño en una API funcional al instante. Define tu arquitectura en un archivo Markdown y obtén automáticamente un backend robusto y escalable, eliminando el trabajo repetitivo para que te enfoques en tu producto.",
                 hero_start: "Empezar",
@@ -549,10 +668,10 @@
                 feat_2_title: "Auth Integrado",
                 feat_2_desc: "Sistema de Login y Registro listo para usar con Firebase Auth. Protege tus endpoints con solo añadir <code>protected: true</code>.",
                 feat_3_desc: "Genera automáticamente operaciones Create, Read, Update y Delete para cada modelo definido en tu JSON.",
+                feat_4_desc: "Generación automática de documentación <strong>OpenAPI</strong> interactiva para probar tus endpoints.",
                 road_title: "El Futuro de Blueprint",
                 road_desc: "El desarrollo continúa. Estamos trabajando en estas funcionalidades para la versión 1.0.",
                 road_1_desc: "Soporte nativo para bases de datos SQL y NoSQL populares, además de Firestore.",
-                road_2_desc: "Generación automática de documentación <strong>OpenAPI</strong> interactiva para probar tus endpoints.",
                 road_3_title: "Tests Automáticos",
                 road_3_desc: "Creación de tests unitarios y de integración para garantizar la calidad del código generado.",
                 road_4_title: "Interfaz Gráfica",
@@ -570,7 +689,7 @@
                 nav_roadmap: "Roadmap",
                 nav_install: "Installation",
                 nav_github: "View on GitHub",
-                hero_badge: "Currently in Beta v0.1.0",
+                hero_badge: "Currently in Beta v0.2.1",
                 hero_title: `Your complete REST API<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">in seconds.</span>`,
                 hero_desc: "Turn your design into a functional API instantly. Define your architecture in a Markdown file and automatically get a robust and scalable backend, eliminating boilerplate work so you can focus on your product.",
                 hero_start: "Get Started",
@@ -585,10 +704,10 @@
                 feat_2_title: "Integrated Auth",
                 feat_2_desc: "Login and Registration system ready to use with Firebase Auth. Protect your endpoints by simply adding <code>protected: true</code>.",
                 feat_3_desc: "Automatically generates Create, Read, Update, and Delete operations for each model defined in your JSON.",
+                feat_4_desc: "Automatic generation of interactive <strong>OpenAPI</strong> documentation to test your endpoints.",
                 road_title: "The Future of Blueprint",
                 road_desc: "Development continues. We are working on these features for version 1.0.",
                 road_1_desc: "Native support for popular SQL and NoSQL databases, in addition to Firestore.",
-                road_2_desc: "Automatic generation of interactive <strong>OpenAPI</strong> documentation to test your endpoints.",
                 road_3_title: "Automated Tests",
                 road_3_desc: "Creation of unit and integration tests to ensure the quality of the generated code.",
                 road_4_title: "Graphic Interface",
@@ -638,7 +757,7 @@
         };
 
         // Detect Language
-        const userLang = navigator.language || navigator.userLanguage; 
+        const userLang = navigator.language || navigator.userLanguage;
         let currentLang = userLang.startsWith('es') ? 'es' : 'en';
 
         function updateContent() {
@@ -652,7 +771,7 @@
                     el.innerHTML = translations[currentLang][key];
                 }
             });
-            
+
             // Restart Terminal
             resetTerminal();
         }
@@ -680,17 +799,17 @@
 
         function typeWriter() {
             const commands = terminalCommands[currentLang];
-            if (cmdIndex >= commands.length) return; 
+            if (cmdIndex >= commands.length) return;
 
             const line = commands[cmdIndex];
-            
+
             if (!isTyping) {
                 const div = document.createElement('div');
                 div.className = "mb-1";
                 if (line.type === 'cmd') div.innerHTML = '<span class="text-cyan-400">➜</span> <span class="typing-target"></span>';
                 else if (line.type === 'success') div.className = "mb-1 text-green-400";
                 else div.className = "mb-1 text-slate-400";
-                
+
                 if (line.type !== 'cmd') {
                     div.textContent = line.text;
                     terminal.appendChild(div);
@@ -699,11 +818,11 @@
                     typingTimeout = setTimeout(typeWriter, line.delay);
                     return;
                 }
-                
+
                 terminal.appendChild(div);
                 isTyping = true;
                 const currentTarget = div.querySelector('.typing-target');
-                if(currentTarget) currentTarget.classList.add('cursor');
+                if (currentTarget) currentTarget.classList.add('cursor');
             }
 
             const currentDiv = terminal.lastElementChild.querySelector('.typing-target');
@@ -712,7 +831,7 @@
                 charIndex++;
 
                 if (charIndex < line.text.length) {
-                    typingTimeout = setTimeout(typeWriter, 40); 
+                    typingTimeout = setTimeout(typeWriter, 40);
                 } else {
                     currentDiv.classList.remove('cursor');
                     isTyping = false;
@@ -764,20 +883,20 @@
             // We want the text content, not the HTML, but preserving newlines
             const textContainer = codeBlock.querySelector('div.space-y-1') || codeBlock;
             let text = "";
-            
+
             if (textContainer.classList.contains('space-y-1')) {
-                 // It's the multi-line block
-                 textContainer.querySelectorAll('p').forEach(p => {
-                     text += p.textContent + "\n";
-                 });
-                 text = text.trim();
+                // It's the multi-line block
+                textContainer.querySelectorAll('p').forEach(p => {
+                    text += p.textContent + "\n";
+                });
+                text = text.trim();
             } else {
                 // Single line
                 text = textContainer.textContent.trim();
             }
 
             navigator.clipboard.writeText(text);
-            
+
             const originalIcon = btn.innerHTML;
             btn.innerHTML = '<span class="text-xs text-green-400 font-bold">OK</span>';
             setTimeout(() => { btn.innerHTML = originalIcon; }, 1500);
@@ -788,4 +907,5 @@
 
     </script>
 </body>
+
 </html>
