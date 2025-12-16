@@ -232,7 +232,7 @@
                 <span
                     class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                     <span class="w-2 h-2 bg-cyan-400 rounded-full mr-2 animate-pulse"></span>
-                    <span data-i18n="hero_badge">Actualmente en Beta v0.2.2</span>
+                    <span data-i18n="hero_badge">Actualmente en Beta v0.2.3</span>
                 </span>
             </div>
 
@@ -531,6 +531,7 @@
                                     <p><span class="text-purple-400">git</span> clone
                                         https://github.com/elbader17/Blueprint.git</p>
                                     <p><span class="text-purple-400">cd</span> Blueprint</p>
+                                    <p><span class="text-purple-400">go</span> mod tidy</p>
                                     <p><span class="text-purple-400">go</span> build -o blueprint_gen
                                         cmd/blueprint/main.go</p>
                                 </div>
@@ -727,7 +728,7 @@
                 { text: "> Modelo encontrado: Orders (Protected: true)", type: "output", delay: 200 },
                 { text: "> Generando Handlers Gin...", type: "output", delay: 300 },
                 { text: "> Proyecto creado en ./ShopAPI 🚀", type: "success", delay: 500 },
-                { text: "$ cd ShopAPI && go run cmd/api/main.go", type: "cmd", delay: 1000 },
+                { text: "> Iniciando servidor automáticamente...", type: "output", delay: 500 },
                 { text: "[GIN-debug] POST   /auth/login", type: "output", delay: 200 },
                 { text: "[GIN-debug] GET    /api/products", type: "output", delay: 200 },
                 { text: "[GIN-debug] POST   /api/orders (Auth Required)", type: "output", delay: 200 },
@@ -743,7 +744,7 @@
                 { text: "> Model found: Orders (Protected: true)", type: "output", delay: 200 },
                 { text: "> Generating Gin Handlers...", type: "output", delay: 300 },
                 { text: "> Project created at ./ShopAPI 🚀", type: "success", delay: 500 },
-                { text: "$ cd ShopAPI && go run cmd/api/main.go", type: "cmd", delay: 1000 },
+                { text: "> Automatically starting server...", type: "output", delay: 500 },
                 { text: "[GIN-debug] POST   /auth/login", type: "output", delay: 200 },
                 { text: "[GIN-debug] GET    /api/products", type: "output", delay: 200 },
                 { text: "[GIN-debug] POST   /api/orders (Auth Required)", type: "output", delay: 200 },
