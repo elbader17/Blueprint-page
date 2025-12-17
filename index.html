@@ -902,6 +902,38 @@
         // Run on Load
         updateContent(); // Starts terminal and sets text
 
+        // --- Favicon Animation ---
+        const faviconColors = [
+            '#38bdf8', // Cyan
+            '#3b82f6'  // Blue
+        ];
+        let faviconIndex = 0;
+
+        function updateFavicon() {
+            faviconIndex = (faviconIndex + 1) % faviconColors.length;
+            const color = faviconColors[faviconIndex];
+
+            // Create SVG with new color
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="50" fill="${color}"/>
+            </svg>`;
+
+            // Convert to Data URI
+            const blob = new Blob([svg], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+
+            // Update Link Tag
+            let link = document.querySelector("link[rel~='icon']");
+            if (!link) {
+                link = document.createElement('link');
+                link.rel = 'icon';
+                document.head.appendChild(link);
+            }
+            link.href = url;
+        }
+
+        setInterval(updateFavicon, 1000);
+
     </script>
 </body>
 
