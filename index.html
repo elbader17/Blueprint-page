@@ -160,6 +160,8 @@
                         <a href="#features"
                             class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium"
                             data-i18n="nav_features">Características</a>
+                        <a href="docs.html"
+                            class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium">Documentación</a>
                         <a href="#demo"
                             class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium"
                             data-i18n="nav_how">Cómo funciona</a>
@@ -201,6 +203,7 @@
             class="fixed inset-0 z-40 bg-slate-900/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8">
             <a href="#features" class="text-xl font-medium text-white hover:text-cyan-400 mobile-link"
                 data-i18n="nav_features">Características</a>
+            <a href="docs.html" class="text-xl font-medium text-white hover:text-cyan-400 mobile-link">Documentación</a>
             <a href="#demo" class="text-xl font-medium text-white hover:text-cyan-400 mobile-link"
                 data-i18n="nav_how">Cómo funciona</a>
             <a href="#roadmap" class="text-xl font-medium text-white hover:text-cyan-400 mobile-link"
@@ -233,7 +236,7 @@
                 <span
                     class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                     <span class="w-2 h-2 bg-cyan-400 rounded-full mr-2 animate-pulse"></span>
-                    <span data-i18n="hero_badge">Actualmente en Beta v0.4.1</span>
+                    <span data-i18n="hero_badge">Actualmente en Release v1.0.1</span>
                 </span>
             </div>
 
@@ -515,7 +518,7 @@
                         </div>
                         <h3 class="font-bold text-white">Auto-Deploys</h3>
                     </div>
-                    <p class="text-slate-400 text-sm" data-i18n="road_5_desc">Generación de Dockerfiles y scripts para
+                    <p class="text-slate-400 text-sm" data-i18n="road_5_desc">Generación de Makefiles y scripts para
                         despliegue automatizado en Cloud Run y otros servicios.</p>
                 </div>
             </div>
@@ -545,9 +548,7 @@
                                     <p><span class="text-purple-400">git</span> clone
                                         https://github.com/elbader17/Blueprint.git</p>
                                     <p><span class="text-purple-400">cd</span> Blueprint</p>
-                                    <p><span class="text-purple-400">go</span> mod tidy</p>
-                                    <p><span class="text-purple-400">go</span> build -o blueprint_gen
-                                        cmd/blueprint/main.go</p>
+                                    <p><span class="text-purple-400">make</span> build</p>
                                 </div>
                             </div>
                             <!-- Copy Button: Absolute Positioned -->
@@ -561,13 +562,13 @@
 
                     <!-- Step 2 -->
                     <div>
-                        <p class="text-slate-400 mb-2 text-sm" data-i18n="install_step2">2. Ejecuta con tu archivo de
-                            configuración:</p>
+                        <p class="text-slate-400 mb-2 text-sm" data-i18n="install_step2">2. Ejecuta el modo interactivo:
+                        </p>
                         <div class="bg-slate-900 rounded-lg border border-slate-700 relative group">
                             <!-- Code Container -->
                             <div
                                 class="overflow-x-auto p-4 pr-12 font-mono text-sm text-slate-300 whitespace-nowrap scrollbar-thin">
-                                <p>./blueprint_gen blueprint.md</p>
+                                <p>./blueprint_gen</p>
                             </div>
                             <!-- Copy Button -->
                             <button
@@ -605,7 +606,8 @@
                 <a href="https://github.com/elbader17/Blueprint" target="_blank"
                     class="text-slate-400 hover:text-white transition-colors"><i data-lucide="github"
                         class="w-5 h-5"></i></a>
-                <a href="#" class="text-slate-400 hover:text-white transition-colors"><i data-lucide="twitter"
+                <a href="https://www.linkedin.com/in/eduardobader/" target="_blank"
+                    class="text-slate-400 hover:text-white transition-colors"><i data-lucide="linkedin"
                         class="w-5 h-5"></i></a>
             </div>
             <p class="mt-8 text-slate-600 text-xs">© 2025 Blueprint CLI Project.</p>
@@ -663,7 +665,7 @@
                 nav_roadmap: "Roadmap",
                 nav_install: "Instalación",
                 nav_github: "Ver en GitHub",
-                hero_badge: "Actualmente en Beta v0.4.1",
+                hero_badge: "Actualmente en Release v1.0.1",
                 hero_title: `Tu API REST completa<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">en segundos.</span>`,
                 hero_desc: "Convierte tu diseño en una API funcional al instante. Define tu arquitectura en un archivo Markdown y obtén automáticamente un backend robusto y escalable con Gin, Firestore, Auth y Mercado Pago.",
                 hero_start: "Empezar",
@@ -688,10 +690,10 @@
                 road_1_desc: "Soporte nativo para bases de datos SQL y NoSQL populares, además de Firestore.",
                 road_4_title: "Interfaz Gráfica",
                 road_4_desc: "Una UI amigable para diseñar tus modelos visualmente sin editar el JSON manualmente.",
-                road_5_desc: "Generación de Dockerfiles y scripts para despliegue automatizado en Cloud Run y otros servicios.",
+                road_5_desc: "Generación de Makefiles y scripts para despliegue automatizado en Cloud Run y otros servicios.",
                 install_title: "Instalación Rápida",
                 install_step1: "1. Clona y compila el generador:",
-                install_step2: "2. Ejecuta con tu archivo de configuración:",
+                install_step2: "2. Ejecuta el modo interactivo:",
                 install_note: '<strong class="text-slate-200">Importante:</strong> Recuerda colocar tu archivo <code>firebaseCredentials.json</code> en la raíz del proyecto generado para que la conexión funcione correctamente.',
                 footer_slogan: 'Tu API completa desde <span class="text-cyan-400">un solo archivo</span>.'
             },
@@ -701,7 +703,7 @@
                 nav_roadmap: "Roadmap",
                 nav_install: "Installation",
                 nav_github: "View on GitHub",
-                hero_badge: "Currently in Beta v0.4.1",
+                hero_badge: "Currently in Release v1.0.1",
                 hero_title: `Your complete REST API<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">in seconds.</span>`,
                 hero_desc: "Turn your design into a functional API instantly. Define your architecture in a Markdown file and automatically get a robust and scalable backend with Gin, Firestore, Auth, and Mercado Pago.",
                 hero_start: "Get Started",
@@ -726,10 +728,10 @@
                 road_1_desc: "Native support for popular SQL and NoSQL databases, in addition to Firestore.",
                 road_4_title: "Graphic Interface",
                 road_4_desc: "A friendly UI to design your models visually without editing JSON manually.",
-                road_5_desc: "Generation of Dockerfiles and scripts for automated deployment to Cloud Run and other services.",
+                road_5_desc: "Generation of Makefiles and scripts for automated deployment to Cloud Run and other services.",
                 install_title: "Quick Installation",
                 install_step1: "1. Clone and build the generator:",
-                install_step2: "2. Run with your configuration file:",
+                install_step2: "2. Run interactive mode:",
                 install_note: '<strong class="text-slate-200">Important:</strong> Remember to place your <code>firebaseCredentials.json</code> file in the root of the generated project for the connection to work correctly.',
                 footer_slogan: 'Your complete API from <span class="text-cyan-400">a single file</span>.'
             }

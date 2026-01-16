@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación - Blueprint CLI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.025em;
+        }
+
+        code,
+        pre {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        .glass-sidebar {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .content-area {
+            scroll-margin-top: 6rem;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-slate-300 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 h-16">
+        <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div class="flex items-center justify-between h-full">
+                <!-- Logo -->
+                <div class="flex items-center gap-2 group cursor-pointer">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <span class="font-bold text-xl tracking-tight text-white">blueprint<span
+                                class="text-cyan-400">.cli</span></span>
+                        <span
+                            class="px-2 py-0.5 rounded-full bg-slate-800 text-xs font-mono text-slate-400 border border-slate-700">DOCS</span>
+                    </a>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="flex items-center gap-4">
+                    <a href="index.html"
+                        class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Volver al
+                        Inicio</a>
+                    <a href="https://github.com/elbader17/Blueprint" target="_blank"
+                        class="bg-white/10 hover:bg-white/20 border border-white/10 text-white p-2 rounded-full transition-all">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex pt-16 min-h-screen">
+        <!-- Sidebar -->
+        <aside class="fixed w-64 h-[calc(100vh-4rem)] overflow-y-auto glass-sidebar hidden lg:block">
+            <div class="p-6 space-y-8">
+                <div>
+                    <h5 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Introducción</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#intro"
+                                class="block text-slate-400 hover:text-white transition-colors sidebar-link">¿Qué es
+                                Blueprint?</a></li>
+                        <li><a href="#features"
+                                class="block text-slate-400 hover:text-white transition-colors sidebar-link">Características</a>
+                        </li>
+                        <li><a href="#prerequisites"
+                                class="block text-slate-400 hover:text-white transition-colors sidebar-link">Requisitos
+                                Previos</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Comenzando</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#installation"
+                                class="block text-slate-400 hover:text-white transition-colors sidebar-link">Instalación</a>
+                        </li>
+                        <li><a href="#usage"
+                                class="block text-slate-400 hover:text-white transition-colors sidebar-link">Uso
+                                Básico</a></li>
+                        <li><a href="#credentials"
+                                class="block text-slate-400 hover:text-white transition-colors sidebar-link">Credenciales</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Referencia</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#blueprint-format"
+                                class="block text-slate-400 hover:text-white transition-colors sidebar-link">Formato
+                                blueprint.md</a>
+                        </li>
+                        <li><a href="#architecture"
+                                class="block text-slate-400 hover:text-white transition-colors sidebar-link">Arquitectura
+                                Generada</a></li>
+                        <li><a href="#endpoints"
+                                class="block text-slate-400 hover:text-white transition-colors sidebar-link">Endpoints
+                                API</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 lg:ml-64 p-6 lg:p-12 max-w-5xl mx-auto">
+
+            <!-- Introduction -->
+            <section id="intro" class="content-area mb-16">
+                <h1 class="text-4xl font-extrabold text-white mb-6">Documentación de Blueprint</h1>
+                <p class="text-lg text-slate-400 leading-relaxed mb-6">
+                    Blueprint es una poderosa herramienta CLI diseñada para generar proyectos de API en Go listos para
+                    producción a partir de una simple definición en Markdown.
+                </p>
+                <div class="bg-slate-800/50 border-l-4 border-cyan-500 p-4 rounded-r-lg">
+                    <p class="text-slate-300">
+                        <strong>Objetivo:</strong> Eliminar el código repetitivo (boilerplate) y permitirte enfocarte en
+                        la lógica de negocio desde el primer minuto.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section id="features" class="content-area mb-16">
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="star" class="text-cyan-400 w-6 h-6"></i> Características Principales
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <h3 class="font-bold text-white mb-2">🚀 Generación Rápida</h3>
+                        <p class="text-sm text-slate-400">Crea una estructura de proyecto Go completa en segundos.</p>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <h3 class="font-bold text-white mb-2">🔒 Auth Integrado</h3>
+                        <p class="text-sm text-slate-400">Soporte opcional para Firebase Auth (Login, Registro, Roles).
+                        </p>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <h3 class="font-bold text-white mb-2">📦 Auto CRUD</h3>
+                        <p class="text-sm text-slate-400">Genera handlers y rutas para crear, leer, actualizar y borrar
+                            documentos.</p>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <h3 class="font-bold text-white mb-2">💳 Mercado Pago</h3>
+                        <p class="text-sm text-slate-400">Integración nativa para procesar pagos fácilmente.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prerequisites -->
+            <section id="prerequisites" class="content-area mb-16">
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="check-circle" class="text-cyan-400 w-6 h-6"></i> Requisitos Previos
+                </h2>
+                <ul class="list-disc list-inside text-slate-400 space-y-2">
+                    <li><a href="https://go.dev/dl/" target="_blank" class="text-cyan-400 hover:underline">Go 1.21+</a>
+                        instalado en tu sistema.</li>
+                    <li>Un proyecto de <a href="https://console.firebase.google.com/" target="_blank"
+                            class="text-cyan-400 hover:underline">Firebase</a> creado.</li>
+                </ul>
+            </section>
+
+            <!-- Installation -->
+            <section id="installation" class="content-area mb-16">
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="download" class="text-cyan-400 w-6 h-6"></i> Instalación
+                </h2>
+                <p class="text-slate-400 mb-4">Clona el repositorio y compila el generador usando el Makefile
+                    proporcionado:</p>
+
+                <div class="bg-[#0d1117] rounded-lg border border-slate-700 p-4 overflow-x-auto mb-6">
+                    <pre><code class="text-sm text-slate-300"><span class="text-purple-400">git</span> clone https://github.com/elbader17/Blueprint
+<span class="text-purple-400">cd</span> Blueprint
+<span class="text-purple-400">make</span> build</code></pre>
+                </div>
+                <p class="text-slate-400 text-sm">Esto descargará las dependencias y compilará el binario
+                    <code>blueprint_gen</code>.
+                </p>
+            </section>
+
+            <!-- Usage -->
+            <section id="usage" class="content-area mb-16">
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="terminal" class="text-cyan-400 w-6 h-6"></i> Uso
+                </h2>
+
+                <h3 class="text-xl font-bold text-white mb-4">Modo Interactivo (Recomendado)</h3>
+                <p class="text-slate-400 mb-4">Ejecuta el generador sin argumentos para lanzar la interfaz visual (TUI):
+                </p>
+                <div class="bg-[#0d1117] rounded-lg border border-slate-700 p-4 overflow-x-auto mb-6">
+                    <code class="text-sm text-slate-300">./blueprint_gen</code>
+                </div>
+                <p class="text-slate-400 mb-6">El asistente te guiará paso a paso para definir tu proyecto, base de
+                    datos, autenticación y modelos.</p>
+
+                <h3 class="text-xl font-bold text-white mb-4">Modo Manual</h3>
+                <p class="text-slate-400 mb-4">Puedes proporcionar un archivo de definición existente directamente:</p>
+                <div class="bg-[#0d1117] rounded-lg border border-slate-700 p-4 overflow-x-auto">
+                    <code class="text-sm text-slate-300">./blueprint_gen blueprint.md</code>
+                </div>
+            </section>
+
+            <!-- Credentials -->
+            <section id="credentials" class="content-area mb-16">
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="key" class="text-cyan-400 w-6 h-6"></i> Credenciales
+                </h2>
+                <p class="text-slate-400 mb-6">Para que la API generada funcione correctamente, necesitas configurar tu
+                    proyecto de Firebase.</p>
+
+                <div class="space-y-6">
+                    <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                        <h3 class="font-bold text-white mb-2">1. Project ID</h3>
+                        <p class="text-sm text-slate-400 mb-2">Obtenlo en la configuración de tu proyecto en Firebase
+                            Console.</p>
+                        <code
+                            class="text-xs bg-slate-900 px-2 py-1 rounded text-cyan-300">project_id: "my-shop-123"</code>
+                    </div>
+
+                    <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                        <h3 class="font-bold text-white mb-2">2. Service Account Key</h3>
+                        <ol class="list-decimal list-inside text-sm text-slate-400 space-y-2">
+                            <li>Ve a <strong>Project settings > Service accounts</strong>.</li>
+                            <li>Genera una nueva clave privada (JSON).</li>
+                            <li>Renombra el archivo a <code class="text-white">firebaseCredentials.json</code>.</li>
+                            <li>Colócalo en la <strong>raíz</strong> de tu proyecto generado.</li>
+                        </ol>
+                        <div
+                            class="mt-4 p-3 bg-amber-500/10 border border-amber-500/20 rounded text-amber-200 text-xs flex gap-2">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 flex-shrink-0"></i>
+                            <span>Nunca subas este archivo a un repositorio público. Añádelo a tu .gitignore.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blueprint Format -->
+            <section id="blueprint-format" class="content-area mb-16">
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="file-json" class="text-cyan-400 w-6 h-6"></i> Formato blueprint.md
+                </h2>
+                <p class="text-slate-400 mb-6">El archivo de entrada debe contener un bloque de código JSON con la
+                    siguiente estructura:</p>
+
+                <div class="bg-[#0d1117] rounded-lg border border-slate-700 p-6 overflow-x-auto relative">
+                    <div class="absolute top-2 right-2 text-xs text-slate-500 font-mono">blueprint.md</div>
+                    <pre><code class="text-sm text-slate-300 language-json">{
+  <span class="text-cyan-400">"project_name"</span>: "ShopMasterAPI",
+  <span class="text-cyan-400">"database"</span>: {
+    <span class="text-cyan-400">"type"</span>: "firestore",
+    <span class="text-cyan-400">"project_id"</span>: "shop-master-prod"
+  },
+  <span class="text-cyan-400">"auth"</span>: {
+    <span class="text-cyan-400">"enabled"</span>: <span class="text-purple-400">true</span>,
+    <span class="text-cyan-400">"user_collection"</span>: "users"
+  },
+  <span class="text-cyan-400">"payments"</span>: {
+    <span class="text-cyan-400">"enabled"</span>: <span class="text-purple-400">true</span>,
+    <span class="text-cyan-400">"provider"</span>: "mercadopago",
+    <span class="text-cyan-400">"transactions_collection"</span>: "transactions"
+  },
+  <span class="text-cyan-400">"models"</span>: [
+    {
+      <span class="text-cyan-400">"name"</span>: "products",
+      <span class="text-cyan-400">"protected"</span>: <span class="text-purple-400">false</span>,
+      <span class="text-cyan-400">"fields"</span>: {
+        <span class="text-cyan-400">"name"</span>: "string",
+        <span class="text-cyan-400">"price"</span>: "float",
+        <span class="text-cyan-400">"description"</span>: "text",
+        <span class="text-cyan-400">"in_stock"</span>: "boolean"
+      },
+      <span class="text-cyan-400">"relations"</span>: {
+        <span class="text-cyan-400">"category"</span>: "belongsTo:categories"
+      }
+    }
+  ]
+}</code></pre>
+                </div>
+
+                <div class="mt-8 space-y-4">
+                    <h3 class="font-bold text-white">Explicación de Campos</h3>
+                    <ul class="list-disc list-inside text-slate-400 space-y-2 text-sm">
+                        <li><code class="text-cyan-400">project_name</code>: Nombre de la carpeta y módulo Go que se
+                            generará.</li>
+                        <li><code class="text-cyan-400">database</code>: Configuración del driver de base de datos
+                            (firestore, postgresql, mongodb).</li>
+                        <li><code class="text-cyan-400">auth</code>: Configuración de autenticación. Si
+                            <code>enabled</code> es true, se genera el sistema de login.
+                        </li>
+                        <li><code class="text-cyan-400">models</code>: Lista de entidades de tu base de datos.
+                            <ul class="list-circle list-inside ml-6 mt-1 text-slate-500">
+                                <li><code>protected</code>: Si es true, las rutas requerirán token Bearer.</li>
+                                <li><code>fields</code>: Mapa de nombre:tipo (string, text, integer, float, boolean,
+                                    datetime).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Architecture -->
+            <section id="architecture" class="content-area mb-16">
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="layers" class="text-cyan-400 w-6 h-6"></i> Arquitectura
+                </h2>
+                <p class="text-slate-400 mb-4">El código generado sigue los principios de <strong>Arquitectura
+                        Hexagonal</strong> (Ports and Adapters) y <strong>Clean Code</strong>.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                        <h4 class="font-bold text-white mb-2">Domain Layer</h4>
+                        <p class="text-sm text-slate-400">Modelos principales e interfaces de repositorio (Ports).
+                            Desacoplado de la infraestructura.</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                        <h4 class="font-bold text-white mb-2">Infrastructure Layer</h4>
+                        <p class="text-sm text-slate-400">Implementaciones concretas (Adapters) como Firestore,
+                            Postgres, etc.</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+                        <h4 class="font-bold text-white mb-2">Application Layer</h4>
+                        <p class="text-sm text-slate-400">Handlers HTTP, lógica de negocio y casos de uso.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Endpoints -->
+            <section id="endpoints" class="content-area mb-16">
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="network" class="text-cyan-400 w-6 h-6"></i> Endpoints Generados
+                </h2>
+                <p class="text-slate-400 mb-6">Dependiendo de tu configuración, se generarán los siguientes endpoints:
+                </p>
+
+                <div class="space-y-8">
+                    <!-- Auth -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-4 border-b border-slate-700 pb-2">Autenticación</h3>
+                        <div class="space-y-2 font-mono text-sm">
+                            <div
+                                class="flex items-center gap-4 p-2 bg-slate-800/30 rounded hover:bg-slate-800 transition-colors">
+                                <span class="text-green-400 w-16">POST</span>
+                                <span class="text-slate-300">/auth/login</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-2 bg-slate-800/30 rounded hover:bg-slate-800 transition-colors">
+                                <span class="text-green-400 w-16">POST</span>
+                                <span class="text-slate-300">/auth/register</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-2 bg-slate-800/30 rounded hover:bg-slate-800 transition-colors">
+                                <span class="text-blue-400 w-16">GET</span>
+                                <span class="text-slate-300">/auth/me</span>
+                                <span
+                                    class="text-xs text-slate-500 ml-auto border border-slate-700 px-2 py-0.5 rounded">Auth
+                                    Required</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CRUD -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-4 border-b border-slate-700 pb-2">Modelos (ej.
+                            Products)</h3>
+                        <div class="space-y-2 font-mono text-sm">
+                            <div
+                                class="flex items-center gap-4 p-2 bg-slate-800/30 rounded hover:bg-slate-800 transition-colors">
+                                <span class="text-blue-400 w-16">GET</span>
+                                <span class="text-slate-300">/api/products</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-2 bg-slate-800/30 rounded hover:bg-slate-800 transition-colors">
+                                <span class="text-blue-400 w-16">GET</span>
+                                <span class="text-slate-300">/api/products/:id</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-2 bg-slate-800/30 rounded hover:bg-slate-800 transition-colors">
+                                <span class="text-green-400 w-16">POST</span>
+                                <span class="text-slate-300">/api/products</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-2 bg-slate-800/30 rounded hover:bg-slate-800 transition-colors">
+                                <span class="text-orange-400 w-16">PUT</span>
+                                <span class="text-slate-300">/api/products/:id</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-2 bg-slate-800/30 rounded hover:bg-slate-800 transition-colors">
+                                <span class="text-red-400 w-16">DELETE</span>
+                                <span class="text-slate-300">/api/products/:id</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="border-t border-slate-800 pt-8 mt-16">
+                <p class="text-center text-slate-500 text-sm">© 2025 Blueprint CLI Project. Documentación generada
+                    automáticamente.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Scroll Spy Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.sidebar-link');
+            const sections = document.querySelectorAll('section');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px', // Trigger when section is near top
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove active class from all
+                        links.forEach(link => {
+                            link.classList.remove('text-cyan-400', 'font-medium');
+                            link.classList.add('text-slate-400', 'hover:text-white');
+                        });
+
+                        // Add active class to current
+                        const activeLink = document.querySelector(`.sidebar-link[href="#${entry.target.id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.remove('text-slate-400', 'hover:text-white');
+                            activeLink.classList.add('text-cyan-400', 'font-medium');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+
+</html>
